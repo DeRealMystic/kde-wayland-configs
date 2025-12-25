@@ -17,135 +17,46 @@ I personally found this way better than touche due to:
 ## Installation
 
 - ### Install dependencies
-https://github.com/DeRealMystic/kde-wayland-configs/blob/main/debian/touchpad/gestures/install_inputactions.sh#L10-L14
+https://github.com/DeRealMystic/kde-wayland-configs/blob/1b9639c4cd5ae20acd9dae400a0369e683614267/debian/touchpad/gestures/install_inputactions.sh#L10-L14
 
 - ### Build & install 
-(installation here)[]
+https://github.com/DeRealMystic/kde-wayland-configs/blob/1b9639c4cd5ae20acd9dae400a0369e683614267/debian/touchpad/gestures/install_inputactions.sh#L16-L29
 
 - ### Enable libevdev backend (optional)
 
 > [!TIP]
 > Use the libevdev backend. It exposes more touchpad data than libinput and is required for reliable 3/4 finger taps and pressure-based gestures.
 
-(udev rules here)[]
+https://github.com/DeRealMystic/kde-wayland-configs/blob/1b9639c4cd5ae20acd9dae400a0369e683614267/debian/touchpad/gestures/additional_setup_libevdev.sh#L9-L23
 
 - ### Enable plugin
-[plugin here)[]
+https://github.com/DeRealMystic/kde-wayland-configs/blob/1b9639c4cd5ae20acd9dae400a0369e683614267/debian/touchpad/gestures/enable_kwin_gestures.sh#L10-L12
 
 # Configuration
 
-## Configuration paths
 - `~/.config/inputactions/config-debug.yaml` (debug builds only)
-- `/etc/inputactions/config.yaml`
-- `~/.config/inputactions/config.yaml` (created if does not exist)
+- `/etc/inputactions/config.yaml` (System-wide configuration file)
+- `~/.config/inputactions/config.yaml` (User-specific configuration file)
 
 ```bash
-sudo mkdir /etc/inputactions && sudo nano /etc/inputactions/config.yaml
+# System-wide configuration file
+sudo mkdir -p /etc/inputactions
 ```
 
-- My configuration file
-```yaml
-touchpad:
-  gestures:
-    # go back / global
-    - type: swipe
-      fingers: 2
-      direction: left
+> [!CAUTION]
+> Remember to backup the original file if this isn't your first time configuring
 
-      actions:
-        - on: begin
-          input:
-            - keyboard: [ leftalt+left ]
-
-    # go forward / global
-    - type: swipe
-      fingers: 2
-      direction: right
-
-      actions:
-        - on: begin
-          input:
-            - keyboard: [ leftalt+right ]
-
-    # volume up&down / global
-    - type: swipe
-      fingers: 3
-      direction: up_down
-
-      actions:
-        - on: update
-          interval: -20
-          input:
-            - keyboard: [ leftshift+volumeup ]
-
-        - on: update
-          interval: 20
-          input:
-            - keyboard: [ leftshift+volumedown ]
-
-    # previous track / global
-    - type: swipe
-      fingers: 3
-      direction: left
-
-      actions:
-        - on: begin
-          input:
-            - keyboard: [ previoussong ]
-
-    # next track / global
-    - type: swipe
-      fingers: 3
-      direction: right
-
-      actions:
-        - on: begin
-          input:
-            - keyboard: [ nextsong ]
-
-    # play/pause current media / global
-    - type: tap
-      fingers: 4
-
-      actions:
-        - on: begin
-          input:
-            - keyboard: [ playpause ]
-
-    # mute / global
-    - type: swipe
-      fingers: 4
-      direction: down
-
-      actions:
-        - on: begin
-          input:
-            - keyboard: [ mute ]
-
-    # maximize window / global
-    - type: swipe
-      fingers: 4
-      direction: up
-
-      actions:
-        - on: begin
-          plasma_shortcut: kwin,Window Maximize
-
-    # minimize window / global
-    - type: pinch
-      fingers: 3
-      direction: in
-
-      actions:
-        - on: begin
-          plasma_shortcut: kwin,Window Minimize
-
-    # close window / global
-    - type: pinch
-      fingers: 4
-      direction: in
-
-      actions:
-        - on: begin
-          plasma_shortcut: kwin,Window Close
+- Write your own configuration file
+```bash
+sudo nano /etc/inputactions/config.yaml
 ```
+
+or 
+- Move my configuration file
+```bash
+sudo cp ./config.yaml /etc/inputactions/config.yaml
+```
+
+## Useful links for configuration
+- [Triggers](https://wiki.inputactions.org/main/trigger.html#trigger)
+- [Keyboard Scan Codes](https://wiki.inputactions.org/main/misc/keyboard-scancodes.html)

@@ -1,4 +1,4 @@
-Thanks to a [reddit post](https://www.reddit.com/r/kde/comments/1jgtx66/best_touchpad_gesture_customizer_for_kde_plasma), found this amazing tool for configuring gestures on KDE (Wayland) when moving over from touche on gnome
+ Thanks to a [reddit post](https://www.reddit.com/r/kde/comments/1jgtx66/best_touchpad_gesture_customizer_for_kde_plasma), found this amazing tool for configuring gestures on KDE (Wayland) when moving over from touche on gnome
 
 # [InputActions](https://github.com/taj-ny/InputActions)
 InputActions is a powerful gesture engine for KDE that lets you bind touchpad gestures to
@@ -17,8 +17,7 @@ I personally found this way better than touche due to:
 ## Installation
 
 - ### Install dependencies
-
-(dependencies here)[]
+https://github.com/DeRealMystic/kde-wayland-configs/blob/main/debian/touchpad/gestures/install_inputactions.sh#L10-14
 
 - ### Build & install 
 (installation here)[]

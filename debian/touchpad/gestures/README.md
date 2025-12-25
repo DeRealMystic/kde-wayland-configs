@@ -17,7 +17,7 @@ I personally found this way better than touche due to:
 ## Installation
 
 - ### Install dependencies
-https://github.com/DeRealMystic/kde-wayland-configs/blob/main/debian/touchpad/gestures/install_inputactions.sh#L10-14
+https://github.com/DeRealMystic/kde-wayland-configs/blob/main/debian/touchpad/gestures/install_inputactions.sh#L10-L14
 
 - ### Build & install 
 (installation here)[]
